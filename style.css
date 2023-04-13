@@ -1,0 +1,404 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline-offset: 3px;
+  outline-color: #008066;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif, Arial, Helvetica;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.main-wrapper {
+  width: 95%;
+  margin: 40px auto;
+  margin-bottom: 20px;
+  padding: 30px 0;
+}
+
+@media (max-width: 564px) {
+  .main-wrapper {
+    padding: 0;
+  }
+}
+
+.series-data {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+@media (max-width: 564px) {
+  .series-data {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 435px) {
+  .series-data {
+    grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+  }
+}
+
+@media (max-width: 370px) {
+  .series-data {
+    justify-content: center;
+    grid-template-columns: 0.88fr;
+  }
+}
+
+.click-effect:active {
+  transform: scale(0.88);
+  transition: 0.3s;
+}
+
+.no-grid {
+  grid-template-columns: auto !important;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.page-title h2 {
+  font-size: 30px;
+  font-weight: 500;
+  color: #008066;
+  text-transform: capitalize;
+}
+
+@media (max-width: 564px) {
+  .page-title h2 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 280px) {
+  .page-title h2 {
+    font-size: 21px;
+  }
+}
+
+.subtitle h3 {
+  color: #00997a;
+  margin-bottom: 10px;
+  font-size: 20px;
+  text-transform: capitalize;
+}
+
+@media (max-width: 767px) {
+  .subtitle h3 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 400px) {
+  .subtitle h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+}
+
+.quotes-wrapper.fold .series-seasons {
+  height: 0;
+  transform: scaleY(0);
+}
+
+.quotes-wrapper.fold .icon {
+  transform: rotate(-90deg);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .title {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    column-gap: 4px;
+  }
+}
+
+.title h2 {
+  text-transform: capitalize;
+  font-size: 27px;
+  font-weight: 500;
+  color: #008066;
+}
+
+@media (max-width: 767px) {
+  .title h2 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 400px) {
+  .title h2 {
+    font-size: 20px;
+  }
+}
+
+.btn {
+  display: inline-block;
+  padding: 6px 18px;
+  font-size: 16px;
+  background: none;
+  outline: none;
+  user-select: none;
+  text-align: center;
+  cursor: pointer;
+  z-index: 99;
+  text-transform: capitalize;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+@media (max-width: 564px) {
+  .btn {
+    padding: 5px 15px;
+    font-size: 15px;
+  }
+}
+
+.btn-secondary {
+  color: #fff;
+  background: #0088ff;
+  border-color: #0088ff;
+}
+
+.btn-secondary.outline {
+  color: #0088ff;
+  background: #fff;
+  border-color: #0088ff;
+}
+
+.btn-secondary.outline:hover {
+  color: #fff;
+  background: #007ae6;
+}
+
+.btn-secondary:hover {
+  background: #007ae6;
+}
+
+.btn-search {
+  font-weight: 500;
+  letter-spacing: 0.8px;
+}
+
+.loader {
+  position: fixed;
+  top: 59px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  z-index: 999999;
+  transition: opacity 0.3s, visibility 0.2s;
+}
+
+.loader.close {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader .spinner {
+  width: 65px;
+  height: 65px;
+  background: inherit;
+  border: 6px solid #f0f0f0;
+  border-top-color: #000;
+  border-radius: 50%;
+  animation: spinner infinite 1s linear;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: #fff;
+  z-index: 9999;
+  box-shadow: 0 5px 10px #00997a1a;
+}
+
+@media (max-width: 500px) {
+  .header {
+    padding: 12px 20px;
+  }
+}
+
+.header .logo a {
+  color: #000;
+}
+
+@media (max-width: 300px) {
+  .header .logo a h3 {
+    font-size: 16px;
+  }
+}
+.search-quotes {
+  margin: 0 auto 20px;
+  width: 100%;
+}
+
+.search-quotes div {
+  position: relative;
+}
+
+.quote {
+    padding: 25px 10px;
+    text-align: start;
+    width: 90%;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: 0.2s;
+  }
+  
+  @media (max-width: 767px) {
+    .quote {
+      width: 95%;
+    }
+  }
+  
+  .quote:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .quote .quote-text {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .quote .quote-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    text-align: end;
+    margin-right: 40px;
+  }
+  
+  @media (max-width: 564px) {
+    .quote .quote-info {
+      margin-right: 20px;
+    }
+  }
+  
+  .quote-text h3 {
+    font-size: 22px;
+    color: #000;
+    opacity: 0.9;
+  }
+  
+  @media (max-width: 900px) {
+    .quote-text h3 {
+      font-size: 20px;
+    }
+  }
+  
+  @media (max-width: 564px) {
+    .quote-text h3 {
+      font-size: 16px;
+    }
+  }
+  
+  .quote-info .quote-author {
+    position: relative;
+    font-weight: 600;
+    font-size: 16px;
+    color: #008066;
+  }
+  
+  @media (max-width: 564px) {
+    .quote-info .quote-author {
+      font-size: 14px;
+    }
+  }
+  
+  .quote-info .quote-author::before {
+    position: absolute;
+    content: "";
+    bottom: 7px;
+    left: -30px;
+    height: 3px;
+    width: 22px;
+    background: #008066;
+    border-radius: 10px;
+  }
+  
+  .quote-info .quote-series {
+    font-size: 15px;
+    color: #00997a;
+  }
+  
+  @media (max-width: 564px) {
+    .quote-info .quote-series {
+      font-size: 13px;
+    }
+  }
+  
+  .quotes-data {
+    margin-top: 80px;
+    gap: 40px;
+  }
+  
+  @media (max-width: 564px) {
+    .quotes-data {
+      margin-top: 40px;
+      margin-bottom: 0;
+      gap: 30px;
+    }
+  }
